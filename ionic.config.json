@@ -1,0 +1,7 @@
+{
+  "name": "examination-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
