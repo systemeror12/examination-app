@@ -4,12 +4,15 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
-
+            <ion-avatar>
+              <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+            <ion-list-header>Vrixen Mendoza</ion-list-header>
+            <ion-note>+63 912 345 6789</ion-note>
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
-                <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none"
+                :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+                <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon" color="dark"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
@@ -19,8 +22,12 @@
             <ion-list-header>Labels</ion-list-header>
 
             <ion-item v-for="(label, index) in labels" lines="none" :key="index">
-              <ion-icon aria-hidden="true" slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
+              <ion-icon aria-hidden="true" slot="start" :ios="label.iosIcon" :md="label.mdIcon" color="dark"></ion-icon>
+              <ion-label>{{ label.title }}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-toggle :checked="themeToggle" @ion-change="toggleChange($event)" justify="space-between">Dark
+                Mode</ion-toggle>
             </ion-item>
           </ion-list>
         </ion-content>
@@ -33,6 +40,7 @@
 <script setup lang="ts">
 import {
   IonApp,
+  IonAvatar,
   IonContent,
   IonIcon,
   IonItem,
@@ -44,66 +52,120 @@ import {
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
+  IonToggle
 } from '@ionic/vue';
+import type { ToggleCustomEvent } from '@ionic/vue';
 import { ref } from 'vue';
 import {
-  archiveOutline,
-  archiveSharp,
-  bookmarkOutline,
-  bookmarkSharp,
-  heartOutline,
-  heartSharp,
+  storefrontOutline,
+  storefrontSharp,
+  notificationsOutline,
+  notificationsSharp,
+  homeOutline,
+  homeSharp,
+  fastFoodOutline,
+  fastFoodSharp,
+  helpCircleOutline,
+  helpCircleSharp,
   mailOutline,
   mailSharp,
-  paperPlaneOutline,
-  paperPlaneSharp,
-  trashOutline,
-  trashSharp,
-  warningOutline,
-  warningSharp,
+  personOutline,
+  personSharp,
+  heartOutline,
+  heartSharp,
+  locationOutline,
+  locationSharp,
+  timeOutline,
+  timeSharp,
 } from 'ionicons/icons';
 
 const selectedIndex = ref(0);
 const appPages = [
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp,
+    title: 'Home',
+    url: '/folder/Home',
+    iosIcon: homeOutline,
+    mdIcon: homeSharp,
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp,
+    title: 'Order Now!',
+    url: '/folder/OrderNow',
+    iosIcon: fastFoodOutline,
+    mdIcon: fastFoodSharp,
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp,
+    title: 'Notifications',
+    url: '/folder/Notifications',
+    iosIcon: notificationsOutline,
+    mdIcon: notificationsSharp,
   },
   {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp,
+    title: 'Store Locator',
+    url: '/folder/StoreLocator',
+    iosIcon: storefrontOutline,
+    mdIcon: storefrontSharp,
   },
   {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp,
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp,
+    title: 'FAQs',
+    url: '/folder/FAQ',
+    iosIcon: helpCircleOutline,
+    mdIcon: helpCircleSharp,
   },
 ];
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const labels = [{
+  title: 'My Orders',
+  iosIcon: mailOutline,
+  mdIcon: mailSharp
+},
+{
+  title: 'My Account',
+  iosIcon: personOutline,
+  mdIcon: personSharp
+},
+{
+  title: 'My Favorites',
+  iosIcon: heartOutline,
+  mdIcon: heartSharp
+},
+{
+  title: 'Order Tracker',
+  iosIcon: locationOutline,
+  mdIcon: locationSharp
+},
+{
+  title: 'Order History',
+  iosIcon: timeOutline,
+  mdIcon: timeSharp
+},
+];
 
+const themeToggle = ref(false);
+
+// Use matchMedia to check the user preference
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Add or remove the "dark" class on the document body
+const toggleDarkTheme = (shouldAdd: boolean) => {
+  document.body.classList.toggle('dark', shouldAdd);
+};
+
+// Check/uncheck the toggle and update the theme based on isDark
+const initializedDarkTheme = (isDark: boolean) => {
+  themeToggle.value = isDark
+  toggleDarkTheme(isDark);
+};
+
+// Initialize the dark theme based on the initial
+// value of the prefers-color-scheme media query
+initializedDarkTheme(prefersDark.matches);
+
+// Listen for changes to the prefers-color-scheme media query
+prefersDark.addEventListener('change', (mediaQuery) => initializedDarkTheme(mediaQuery.matches));
+
+// Listen for the toggle check/uncheck to toggle the dark theme
+const toggleChange = (ev: ToggleCustomEvent) => {
+  toggleDarkTheme(ev.detail.checked);
+}
 const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
   selectedIndex.value = appPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
