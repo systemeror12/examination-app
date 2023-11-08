@@ -18,6 +18,12 @@
                 <h1>What do you want to eat?</h1>
             </ion-text>
             <ion-searchbar show-clear-button="focus" value="Show on Focus"></ion-searchbar>
+
+            <swiper :modules="modules" :autoplay="true" :keyboard="true" :pagination="true">
+                <swiper-slide>Slide 1</swiper-slide>
+                <swiper-slide>Slide 2</swiper-slide>
+                <swiper-slide>Slide 3</swiper-slide>
+            </swiper>
         </ion-content>
     </ion-page>
 </template>
@@ -34,6 +40,12 @@ import {
     IonText,
     IonSearchbar,
 } from '@ionic/vue';
+import 'swiper/swiper-bundle.css';
+import '@ionic/vue/css/ionic-swiper.css';
+import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+const modules = [Autoplay, Keyboard, Pagination, Scrollbar, Zoom];
 </script>
   
 <style scoped>
