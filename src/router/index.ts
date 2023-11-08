@@ -7,9 +7,15 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/folder/Home'
   },
   {
-    path: '/folder/:id',
-    component: () => import('../views/FolderPage.vue')
-  }
+    path: '/folder/Home',
+    name: 'Home',
+    component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/folder/OrderNow',
+    name: 'Order Now',
+    component: () => import('../views/OrderNow.vue')
+  },
 ]
 
 const router = createRouter({

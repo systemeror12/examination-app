@@ -4,11 +4,19 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-avatar>
-              <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-            </ion-avatar>
-            <ion-list-header>Vrixen Mendoza</ion-list-header>
-            <ion-note>+63 912 345 6789</ion-note>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="3">
+                  <ion-avatar>
+                    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                  </ion-avatar>
+                </ion-col>
+                <ion-col size="9">
+                  <ion-list-header class="ion-header-profile">Vrixen Mendoza</ion-list-header>
+                  <ion-note class="ion-header-number">+63 912 345 6789</ion-note>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
               <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none"
                 :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
@@ -52,7 +60,10 @@ import {
   IonNote,
   IonRouterOutlet,
   IonSplitPane,
-  IonToggle
+  IonToggle,
+  IonGrid,
+  IonRow,
+  IonCol
 } from '@ionic/vue';
 import type { ToggleCustomEvent } from '@ionic/vue';
 import { ref } from 'vue';
@@ -291,5 +302,9 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+.ion-header-profile {
+  margin-top: 12px;
 }
 </style>
