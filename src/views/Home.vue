@@ -14,16 +14,12 @@
                     <ion-title size="large">{{ $route.name }}</ion-title>
                 </ion-toolbar>
             </ion-header>
-            <ion-text>
+            <ion-text class="header">
                 <h1>What do you want to eat?</h1>
             </ion-text>
             <ion-searchbar show-clear-button="focus" value="Show on Focus"></ion-searchbar>
-
-            <swiper :modules="modules" :autoplay="true" :keyboard="true" :pagination="true">
-                <swiper-slide>Slide 1</swiper-slide>
-                <swiper-slide>Slide 2</swiper-slide>
-                <swiper-slide>Slide 3</swiper-slide>
-            </swiper>
+            <Swiper></Swiper>
+            <PopularSection></PopularSection>
         </ion-content>
     </ion-page>
 </template>
@@ -40,14 +36,10 @@ import {
     IonText,
     IonSearchbar,
 } from '@ionic/vue';
-import 'swiper/swiper-bundle.css';
-import '@ionic/vue/css/ionic-swiper.css';
-import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-
-const modules = [Autoplay, Keyboard, Pagination, Scrollbar, Zoom];
+import Swiper from '@/component/Swiper.vue'
+import PopularSection from '@/component/PopularSection.vue'
 </script>
-  
+
 <style scoped>
 #container {
     text-align: center;
@@ -74,16 +66,15 @@ const modules = [Autoplay, Keyboard, Pagination, Scrollbar, Zoom];
     text-decoration: none;
 }
 
-ion-text {
+ion-text.header {
     text-align: center;
 }
 
 ion-text h1 {
-    padding-top: 50px;
+    margin-top: 50px;
 }
 
 ion-searchbar {
-
     margin: 0 auto;
     max-width: 85%;
 }
