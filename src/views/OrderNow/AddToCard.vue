@@ -33,7 +33,7 @@
                         </ion-text>
                     </ion-col>
                     <ion-col size="2" size-lg="1">
-                        <ion-button class="order-button">-</ion-button>
+                        <ion-button>-</ion-button>
                     </ion-col>
                     <ion-col size="2" size-lg="1">
                         <ion-text>
@@ -41,10 +41,13 @@
                         </ion-text>
                     </ion-col>
                     <ion-col size="2" size-lg="1">
-                        <ion-button class="order-button">+</ion-button>
+                        <ion-button>+</ion-button>
                     </ion-col>
                 </ion-row>
             </ion-grid>
+            <Beverages />
+            <AddOn />
+            <ion-button class="add-to-bag-button" expand="block">Add to Bag</ion-button>
         </ion-content>
     </ion-page>
 </template>
@@ -65,6 +68,8 @@ import {
 
 } from '@ionic/vue';
 import Header from '@/component/Header.vue';
+import Beverages from '@/component/Beverages.vue';
+import AddOn from '@/component/AddOn.vue';
 </script>
 
 <style scoped>
@@ -110,5 +115,18 @@ ion-text h1.quantity-label {
 
 ion-button {
     padding-top: 12px;
+}
+
+ion-button.add-to-bag-button {
+    position: fixed;
+    top: 1;
+    left: 1;
+    right: 50px;
+    bottom: 0px;
+    font-size: 14px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 24px;
+
 }
 </style>
