@@ -14,7 +14,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/folder/OrderNow',
     name: 'Order Now',
-    component: () => import('../views/OrderNow.vue')
+    component: () => import('../views/OrderNow/OrderNow.vue')
+  },
+  {
+    path: '/folder/AddToCard',
+    name: 'AddToCard',
+    component: () => import('../views/OrderNow/AddToCard.vue')
   },
 ]
 
