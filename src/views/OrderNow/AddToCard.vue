@@ -47,11 +47,15 @@
             </ion-grid>
             <Beverages />
             <AddOn />
-            <ion-button class="add-to-bag-button" expand="block">Add to Bag</ion-button>
+            <div v-if="data.showModal">
+                <OrderSccuess />
+            </div>
+            <ion-button class="add-to-bag-button" expand="block" @click="toggleModal">Add to Bag</ion-button>
         </ion-content>
     </ion-page>
 </template>
 <script setup lang="ts">
+import { reactive } from 'vue';
 import {
     IonPage,
     IonContent,
@@ -70,6 +74,15 @@ import {
 import Header from '@/component/Header.vue';
 import Beverages from '@/component/Beverages.vue';
 import AddOn from '@/component/AddOn.vue';
+import OrderSccuess from '@/component/OrderSuccess.vue'
+
+const data = reactive({
+    showModal: false
+});
+
+const toggleModal = () => {
+    data.showModal = !data.showModal
+}
 </script>
 
 <style scoped>
