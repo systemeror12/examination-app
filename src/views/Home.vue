@@ -19,7 +19,7 @@
                 <h1>Most Popular</h1>
             </ion-text>
             <FoodSection />
-            <ion-button class="order-button">Order now</ion-button>
+            <ion-button class="order-button" router-direction="root" router-link="/folder/OrderNow">Order now</ion-button>
         </ion-content>
     </ion-page>
 </template>

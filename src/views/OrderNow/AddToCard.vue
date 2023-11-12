@@ -46,6 +46,9 @@
                 </ion-row>
             </ion-grid>
             <Beverages />
+            <ion-text>
+                <h1 class="add-on-label">Add-Ons</h1>
+            </ion-text>
             <AddOn />
             <div v-if="data.showModal">
                 <OrderSccuess />
@@ -90,6 +93,16 @@ const toggleModal = () => {
     ion-grid {
         margin-top: 24px;
         max-width: 768px;
+    }
+}
+
+ion-text h1.add-on-label {
+    margin-left: 28px;
+}
+
+@media only screen and (min-width: 768px) {
+    ion-text h1.add-on-label {
+        margin-left: 70px;
     }
 }
 

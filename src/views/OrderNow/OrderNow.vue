@@ -8,22 +8,7 @@
                 </ion-toolbar>
             </ion-header>
             <ion-searchbar show-clear-button="focus"></ion-searchbar>
-            <ion-grid class="food-grid">
-                <ion-row>
-                    <ion-col size="2" size-lg="2">
-                        <ion-button class="order-button" expand="block">All</ion-button>
-                    </ion-col>
-                    <ion-col size="4" size-lg="4">
-                        <ion-button class="order-button" expand="block">Breakfast</ion-button>
-                    </ion-col>
-                    <ion-col size="3" size-lg="3">
-                        <ion-button class="order-button" expand="block">Chicken</ion-button>
-                    </ion-col>
-                    <ion-col size="3" size-lg="3">
-                        <ion-button class="order-button" expand="block">Seafood</ion-button>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+            <ButtonSelection button_one="All" button_two="Breakfast" button_three="Chicken" button_four="Seafood" />
             <FoodSection />
         </ion-content>
     </ion-page>
@@ -32,6 +17,7 @@
 <script setup lang="ts">
 import Header from '@/component/Header.vue';
 import FoodSection from '@/component/FoodSection.vue';
+import ButtonSelection from '@/component/ButtonSelection.vue';
 import {
     IonContent,
     IonHeader,
@@ -39,10 +25,6 @@ import {
     IonTitle,
     IonToolbar,
     IonSearchbar,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonButton
 } from '@ionic/vue';
 </script>
   
@@ -70,16 +52,6 @@ import {
 
 #container a {
     text-decoration: none;
-}
-
-ion-grid.food-grid {
-    max-width: 375px;
-}
-
-@media only screen and (min-width: 768px) {
-    ion-grid.food-grid {
-        max-width: 1024px;
-    }
 }
 
 ion-searchbar {

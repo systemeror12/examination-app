@@ -21,6 +21,21 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AddToCard',
     component: () => import('../views/OrderNow/AddToCard.vue')
   },
+  {
+    path: '/folder/OrderSummary',
+    name: 'OrderSummary',
+    component: () => import('../views/OrderNow/OrderSummary.vue')
+  },
+  {
+    path: '/folder/OrderRecieved',
+    name: 'OrderRecieved',
+    component: () => import('../views/OrderNow/OrderRecieved.vue')
+  },
+  {
+    path: '/folder/LoyaltyPoints',
+    name: 'Loyalty Points',
+    component: () => import('../views/LoyaltyPoints.vue')
+  },
 ]
 
 const router = createRouter({

@@ -1,5 +1,5 @@
 <template>
-    <ion-grid class="add-on-grid">
+    <ion-grid class="order-grid">
         <ion-row>
             <ion-col size="12">
                 <ion-card>
@@ -57,16 +57,6 @@ import {
 </script>
 
 <style scoped>
-ion-text h1.add-on-label {
-    margin-left: 28px;
-}
-
-@media only screen and (min-width: 768px) {
-    ion-text h1.add-on-label {
-        margin-left: 70px;
-    }
-}
-
 ion-img.extra-rice {
     padding-top: 28px;
 
@@ -81,7 +71,7 @@ ion-img.extra-rice {
 }
 
 @media only screen and (min-width: 768px) {
-    ion-grid.add-on-grid {
+    ion-grid.order-grid {
         max-width: 1024px;
     }
 }

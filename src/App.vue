@@ -88,6 +88,8 @@ import {
   locationSharp,
   timeOutline,
   timeSharp,
+  starOutline,
+  starSharp
 } from 'ionicons/icons';
 
 const selectedIndex = ref(0);
@@ -115,6 +117,12 @@ const appPages = [
     url: '/folder/StoreLocator',
     iosIcon: storefrontOutline,
     mdIcon: storefrontSharp,
+  },
+  {
+    title: 'Loyalty Points',
+    url: '/folder/LoyaltyPoints',
+    iosIcon: starOutline,
+    mdIcon: starSharp,
   },
   {
     title: 'FAQs',

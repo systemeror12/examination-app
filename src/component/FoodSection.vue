@@ -10,7 +10,7 @@
                 </ion-card>
             </ion-col>
             <ion-col size="12" size-lg="6">
-                <ion-card>
+                <ion-card router-direction="root" router-link="/folder/AddToCard">
                     <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
                     <ion-card-title>Steak Fried Veggies</ion-card-title>
                     <ion-card-content>Meat</ion-card-content>
@@ -18,7 +18,7 @@
                 </ion-card>
             </ion-col>
             <ion-col size="12" size-lg="6">
-                <ion-card>
+                <ion-card router-direction="root" router-link="/folder/AddToCard">
                     <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
                     <ion-card-title>Steak Fried Veggies</ion-card-title>
                     <ion-card-content>Meat</ion-card-content>
@@ -26,7 +26,7 @@
                 </ion-card>
             </ion-col>
             <ion-col size="12" size-lg="6">
-                <ion-card>
+                <ion-card router-direction="root" router-link="/folder/AddToCard">
                     <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
                     <ion-card-title>Steak Fried Veggies</ion-card-title>
                     <ion-card-content>Meat</ion-card-content>

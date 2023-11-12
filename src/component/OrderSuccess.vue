@@ -1,15 +1,16 @@
 <template>
     <ion-grid>
         <ion-row>
-            <ion-col>
+            <ion-col size="12">
                 <ion-card>
+                    <ion-img src="/src/img/ThumbsUp.png"></ion-img>
                     <ion-card-title>
                         Successfully Added!
                     </ion-card-title>
                     <ion-card-content>
                         What do you want to do now?
                     </ion-card-content>
-                    <ion-button>Proceed to Checkout</ion-button>
+                    <ion-button router-direction="root" router-link="/folder/OrderSummary">Proceed to Checkout</ion-button>
                     <ion-card-content router-direction="root" router-link="/folder/OrderNow">
                         Add More
                     </ion-card-content>
@@ -27,6 +28,7 @@ import {
     IonRow,
     IonCol,
     IonButton,
+    IonImg
 } from '@ionic/vue';
 
 const emit = defineEmits<{
@@ -46,7 +48,7 @@ ion-grid {
 @media only screen and (min-width: 768px) {
     ion-grid {
         position: fixed;
-        top: 200px;
+        top: 100px;
         bottom: 0;
         left: 0;
         right: 0;
@@ -89,6 +91,24 @@ ion-button {
 @media only screen and (min-width: 768px) {
     ion-button {
         padding-left: 180px;
+    }
+}
+
+ion-img {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 105px;
+    height: auto;
+    width: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+    ion-img {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-left: 210px;
+        height: auto;
+        width: 150px;
     }
 }
 </style>
