@@ -9,6 +9,9 @@
 -> install node.js
 https://nodejs.org/en/
 
+-> install node mudules
+   npm install
+
 -> install Ionic Framework
 1. install using Ionic CLI <br> npm install -g @ionic/cli
 
