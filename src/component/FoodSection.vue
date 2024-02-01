@@ -1,45 +1,15 @@
 <template>
-    <ion-grid>
-        <ion-row>
-            <ion-col size="12" size-lg="6">
-                <ion-card router-direction="root" router-link="/folder/AddToCard">
-                    <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
-                    <ion-card-title>Steak Fried Veggies</ion-card-title>
-                    <ion-card-content>Meat</ion-card-content>
-                    <ion-card-content>P 185</ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="12" size-lg="6">
-                <ion-card router-direction="root" router-link="/folder/AddToCard">
-                    <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
-                    <ion-card-title>Steak Fried Veggies</ion-card-title>
-                    <ion-card-content>Meat</ion-card-content>
-                    <ion-card-content>P 185</ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="12" size-lg="6">
-                <ion-card router-direction="root" router-link="/folder/AddToCard">
-                    <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
-                    <ion-card-title>Steak Fried Veggies</ion-card-title>
-                    <ion-card-content>Meat</ion-card-content>
-                    <ion-card-content>P 185</ion-card-content>
-                </ion-card>
-            </ion-col>
-            <ion-col size="12" size-lg="6">
-                <ion-card router-direction="root" router-link="/folder/AddToCard">
-                    <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
-                    <ion-card-title>Steak Fried Veggies</ion-card-title>
-                    <ion-card-content>Meat</ion-card-content>
-                    <ion-card-content>P 185</ion-card-content>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <ion-col size="12" size-lg="6">
+        <ion-card router-direction="root" router-link="/folder/AddToCard">
+            <ion-img src="/src/img/Steak Fried Veggies.jpg" alt="Steak Fried Veggies"></ion-img>
+            <ion-card-title>{{ title }}</ion-card-title>
+            <ion-card-content>{{ category }}</ion-card-content>
+            <ion-card-content>{{ price }}</ion-card-content>
+        </ion-card>
+    </ion-col>
 </template>
 <script setup lang="ts">
 import {
-    IonGrid,
-    IonRow,
     IonCol,
     IonCard,
     IonCardContent,
@@ -49,6 +19,8 @@ import {
 
 defineProps<{
     title?: string
+    category?: string
+    price?: string
 }>()
 </script>
 
